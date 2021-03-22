@@ -121,20 +121,42 @@ nav, .content, footer{
     width: 100%;
     display: grid;
     place-items: center;
+    box-sizing: border-box;
 }
 
-#slideshow-item-main{
+.slideshow-item-thumb{
+    opacity: 0.6;
+    transition: 0.6s;
+}
+
+.slideshow-item-thumb:hover, .slideshow-item-thumb:focus{
+    opacity: 1;
+}
+
+.active{
+    opacity: 1;
+    border: thick solid white;
+}
+
+.slideshow-item-main{
     grid-area: 1 / 1 / 4 / 4;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
 }
 
-#slideshow-item-main img{
+.cake-name{
+    color: white;
+    font-family: 'Goldman', sans-serif;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 1.5em;
+}
+
+.slideshow-item-main img{
     height: calc(100vh / 1.95);
     width: calc(100vw / 3);
     object-fit: contain;
-}
-
-#slideshow-item-1{
-    grid-area: 1 / 4 / 2 / 5;
 }
 
 img{
@@ -185,7 +207,6 @@ nav a:hover, nav a:focus, .contact a:hover, .contact a:focus{
     fill: white;
     opacity: 0.8;
     padding: 5px;
-    
 }
 
 .social-icon a:hover, .social-icon a:focus{

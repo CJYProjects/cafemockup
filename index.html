@@ -49,25 +49,46 @@
                     <a href = "#">ABOUT</a>
                 </nav>
                 <div class = "content">
-                    <div id = "slideshow-item-main" class = "slideshow-item">
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/blackforest.png"></img>
+                        <div class = "cake-name">Black<br/>Forest</div>
+                    </div>
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/cookiesandcream.png"></img>
+                        <div class = "cake-name">Cookies<br/>and<br/>Cream</div>
+                    </div>
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/redvelvet.png"></img>
+                        <div class = "cake-name">Red<br/>Velvet</div>
+                    </div>
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/rockyroad.png"></img>
+                        <div class = "cake-name">Rocky<br/>Road</div>
+                    </div>
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/strawberry.png"></img>
+                        <div class = "cake-name">Strawberry</div>
+                    </div>
+                    <div class = "slideshow-item slideshow-item-main">
+                        <img src = "cakes/vanillasprinkles.png"></img>
+                        <div class = "cake-name">Vanilla<br/>Sprinkles</div>
+                    </div>
+                    <div id = "slideshow-item-1" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(0)">
                         <img src = "cakes/blackforest.png"></img>
                     </div>
-                    <div id = "slideshow-item-1" class = "slideshow-item">
-                        <img src = "cakes/blackforest.png"></img>
-                    </div>
-                    <div id = "slideshow-item-2" class = "slideshow-item">
+                    <div id = "slideshow-item-2" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(1)">
                         <img src = "cakes/cookiesandcream.png"></img>
                     </div>
-                    <div id = "slideshow-item-3" class = "slideshow-item">
+                    <div id = "slideshow-item-3" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(2)">
                         <img src = "cakes/redvelvet.png"></img>
                     </div>
-                    <div id = "slideshow-item-4" class = "slideshow-item">
+                    <div id = "slideshow-item-4" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(3)">
                         <img src = "cakes/rockyroad.png"></img>
                     </div>
-                    <div id = "slideshow-item-5" class = "slideshow-item">
+                    <div id = "slideshow-item-5" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(4)">
                         <img src = "cakes/strawberry.png"></img>
                     </div>
-                    <div id = "slideshow-item-6" class = "slideshow-item">
+                    <div id = "slideshow-item-6" class = "slideshow-item slideshow-item-thumb" onclick = "currentSlide(5)">
                         <img src = "cakes/vanillasprinkles.png"></img>
                     </div>
                 </div>
@@ -99,5 +120,38 @@
                 </footer>
             </div>
         </div>
+        
+        <script>
+            var slideIndex = 0;
+            currentSlide(slideIndex);
+            
+            function currentSlide(n){
+                slideIndex = n;
+                showSlide(slideIndex);
+            }
+            
+            function showSlide(n){
+                var slides = document.getElementsByClassName("slideshow-item-main");
+                var thumbs = document.getElementsByClassName("slideshow-item-thumb");
+                slideIndex++;
+                if(n > thumbs.length || slideIndex > thumbs.length){
+                    slideIndex = 1;
+                }
+                if(n < 0 || slideIndex < 0){
+                    slideIndex = thumbs.length;
+                }
+                for(i = 0; i < slides.length; i++){
+                    slides[i].style.display = "none";
+                }
+                for(i = 0; i < thumbs.length; i++){
+                    thumbs[i].classList.remove("active");
+                }
+                
+                slides[slideIndex - 1].style.display = "flex";
+                thumbs[slideIndex - 1].classList.add("active");
+                
+                setTimeout(showSlide, 3800);
+            }
+        </script>
     </body>
 </html>
