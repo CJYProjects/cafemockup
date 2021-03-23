@@ -9,25 +9,9 @@
         
         <link rel="stylesheet" href="cakestyle.css"></link>
         
-        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Electrolize" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Jura" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Saira" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=VT323" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Aldrich" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Michroma" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Nova+Cut" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Tomorrow" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Nova+Square" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Goldman" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Shojumaru" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Turret+Road" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Sarpanch" rel="stylesheet">
     </head>
     
     <body>
@@ -123,9 +107,11 @@
         
         <script>
             var slideIndex = 0;
-            currentSlide(slideIndex);
+            var timer = null;
+            showSlide(slideIndex);
             
             function currentSlide(n){
+                clearTimeout(timer);
                 slideIndex = n;
                 showSlide(slideIndex);
             }
@@ -150,7 +136,7 @@
                 slides[slideIndex - 1].style.display = "flex";
                 thumbs[slideIndex - 1].classList.add("active");
                 
-                setTimeout(showSlide, 3800);
+                timer = setTimeout(showSlide, 3600);
             }
         </script>
     </body>
